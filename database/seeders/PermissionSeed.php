@@ -53,9 +53,8 @@ class PermissionSeed extends Seeder
             [ 'title' => 'result_access',],
             [ 'title' => 'siswa_access',],
             [ 'title' => 'guru_access',],
-        ];
-
-            Permission::insert($permissions);
-
+            [ 'title' => 'ujian_access',],
+        ];    
+        Permission::insert($permissions);
     }
 }

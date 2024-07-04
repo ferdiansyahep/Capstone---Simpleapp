@@ -23,9 +23,9 @@
     
 
     @cannot('user_access')
-    <li class="nav-item mx-3 mt-3 btn btn-outline-light no-hover">
-        <a class="d-flex align-items-center" href="{{ route('beranda') }}">
-            <img src="{{ asset('img/home-icon.png') }}" alt="" class="mr-1 w-auto">
+    <li class="nav-item {{ request()->is('/') ? 'active' : '' }}">
+        <a class="nav-link" href="{{ route('beranda') }}">
+            <img src="{{asset('img/home-icon.png')}}" alt="">
             <span class="text-light mt-1">{{ __('Beranda') }}</span>
         </a>
     </li>
@@ -53,7 +53,7 @@
     </li>
     @endcan
 
-    @can('user_management_access')
+    @can('ujian_access')
     <li class="nav-item {{ request()->is('admin/categories') ? 'active' : '' }}">
         <a class="nav-link" href="{{ route('admin.categories.index') }}">
             <img src="{{asset('img/desk.svg')}}" alt="">
@@ -63,9 +63,9 @@
     @endcan
 
     @can('guru_access')
-    <li class="nav-item m-3 btn btn-outline-light no-hover">
-        <a class="d-flex align-items-center" href="{{ route('guru.categories') }}">
-            <img src="{{ asset('img/desk.svg') }}" alt="" class="mr-1 w-auto">
+    <li class="nav-item {{ request()->is('admin/guru/mata-pelajaran') ? 'active' : '' }}">
+        <a class="nav-link" href="{{ route('guru.categories') }}">
+            <img src="{{ asset('img/desk.svg')}}" alt="">
             <span class="text-light">{{ __('Kelas') }}</span>
         </a>
     </li>
@@ -130,7 +130,7 @@
     </li>
     @endcan
 
-    @can('user_management_access')
+    @can('ujian_access')
     <li class="nav-item {{ request()->is('admin/questions') ? 'active' : '' }}">
         <a class="nav-link" href="{{ route('admin.questions.index') }}">
             <img src="{{asset('img/soal.svg')}}" alt="">
@@ -139,7 +139,7 @@
     </li>
     @endcan
 
-    @can('user_management_access')
+    @can('ujian_access')
     <li class="nav-item {{ request()->is('admin/results') ? 'active' : '' }}">
         <a class="nav-link" href="{{ route('admin.results.index') }}">
             <img src="{{asset('img/nilai.svg')}}" alt="">
@@ -149,18 +149,18 @@
     @endcan
 
     @can('siswa_access')
-    <li class="nav-item m-3 btn btn-outline-light no-hover">
-        <a class="d-flex align-items-center" href="{{ route('admin.client.index') }}">
-            <img src="{{ asset('img/desk.svg') }}" alt="" class="mr-1 w-auto">
+    <li class="nav-item {{ request()->is('ujian') ? 'active' : '' }}">
+        <a class="nav-link" href="{{ route('admin.client.index') }}">
+            <img src="{{ asset('img/desk.svg')}}" alt="">
             <span class="text-light">{{ __('Ujian') }}</span>
         </a>
     </li>
     @endcan
 
     @can('siswa_access')
-    <li class="nav-item m-3 mt-0 btn btn-outline-light no-hover">
-        <a class="d-flex align-items-center" href="{{ route('client.results') }}">
-            <img src="{{ asset('img/desk.svg') }}" alt="" class="mr-1 w-auto">
+    <li class="nav-item {{ request()->is('nilai') ? 'active' : '' }}">
+        <a class="nav-link" href="{{ route('client.results') }}">
+            <img src="{{ asset('img/desk.svg')}}" alt="">
             <span class="text-light">{{ __('Hasil Ujian') }}</span>
         </a>
     </li>

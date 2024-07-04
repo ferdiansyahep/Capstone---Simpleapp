@@ -26,7 +26,7 @@ class CreateQuestionsTable extends Migration
         Schema::create('options', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(Question::class)->constrained()->cascadeOnUpdate()->cascadeOnDelete();
-            $table->longText('option_text')->default('Default Option Text'); ;
+            $table->longText('option_text');
             $table->boolean('is_correct')->default(false);
             $table->timestamps();
         });

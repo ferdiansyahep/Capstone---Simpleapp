@@ -21,10 +21,14 @@ class RoleSeed extends Seeder
             ],
             [
                 'id'    => 2,
+                'title' => 'admin ujian',
+            ],
+            [
+                'id'    => 3,
                 'title' => 'guru',
             ],
             [
-                'id' => 3,
+                'id' => 4,
                 'title' => 'siswa'
             ]
         ];
